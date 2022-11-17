@@ -433,7 +433,7 @@ const uploadprofileImage = asyncHandler(async (req, res) => {
     },
     { new: true }
   );
-  //  remove the save image
+  //  remove the save images
 
   fs.unlinkSync(localPath);
 
