@@ -425,19 +425,22 @@ const uploadprofileImage = asyncHandler(async (req, res) => {
 
   // upload to clodinary
   let imgUploaded = await CloudUploadImage(localPath);
+  try {
+    await User.findByIdAndUpdate(
+      _id,
+      {
+        profilePhoto: imgUploaded?.url,
+      },
+      { new: true }
+    );
+    //  remove the save images
 
-  await User.findByIdAndUpdate(
-    _id,
-    {
-      profilePhoto: imgUploaded?.url,
-    },
-    { new: true }
-  );
-  //  remove the save images
+    fs.unlinkSync(localPath);
 
-  fs.unlinkSync(localPath);
-
-  res.json(imgUploaded);
+    res.json(imgUploaded);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
 });
 
 module.exports = {
