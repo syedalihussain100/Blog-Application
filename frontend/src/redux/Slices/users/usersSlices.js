@@ -120,9 +120,11 @@ export const uploadProfilePhotoAction = createAsyncThunk(
     // http call
     try {
       const formData = new FormData();
+
       formData.append("image", userProfile?.image);
+
       const { data } = await axios.put(
-        "http://localhost:4000/api/users/upload/profile-photo",
+        `/api/users/upload/profile-photo`,
         formData,
         config
       );

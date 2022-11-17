@@ -48,7 +48,7 @@ function App() {
             <Route path="/updatepost/:id" element={<UpdatePost />} />
             <Route path="/update-comment/:id" element={<UpdateComment />} />
             <Route
-              path="/upload-profile-photo/:id"
+              path="/upload-profile-photo"
               element={<UploadPhotoUpload />}
             />
             <Route path="/update-profile/:id" element={<UpdateProfileForm />} />

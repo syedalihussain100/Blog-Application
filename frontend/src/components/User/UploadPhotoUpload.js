@@ -30,8 +30,7 @@ const formSchema = Yup.object({
 
 export default function UploadProfilePhoto() {
   const storeData = useSelector((state) => state?.users);
-  const { loading, appErr, serverErr, profilePhoto,userAuth } = storeData;
-
+  const { loading, appErr, serverErr, profilePhoto, userAuth } = storeData;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,7 +46,7 @@ export default function UploadProfilePhoto() {
     validationSchema: formSchema,
   });
 
-  if(profilePhoto) return navigate(`/profile/${userAuth?._id}`);
+  if (profilePhoto) return navigate(`/profile/${userAuth?._id}`);
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
