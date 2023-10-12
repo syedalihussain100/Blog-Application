@@ -16,7 +16,7 @@ export const registerUserAction = createAsyncThunk(
     //http call
     try {
       const { data } = await axios.post(
-        "/api/users/register",
+        "http://localhost:4000/api/users/register",
         user,
         config
       );
@@ -43,7 +43,7 @@ export const loginUserAction = createAsyncThunk(
     try {
       //make http call
       const { data } = await axios.post(
-        `/api/users/login`,
+        `http://localhost:4000/api/users/login`,
         userData,
         config
       );
@@ -90,7 +90,7 @@ export const userProfileAction = createAsyncThunk(
     try {
       // http call
       const { data } = await axios.get(
-        `/api/users/profile/${id}`,
+        `http://localhost:4000/api/users/profile/${id}`,
         config
       );
 
@@ -151,7 +151,7 @@ export const userUpdateProfileAction = createAsyncThunk(
     // http call
     try {
       const { data } = await axios.put(
-        `/api/users/profile/${user?._id}`,
+        `http://localhost:4000/api/users/profile/${user?._id}`,
         {
           firstName: userProfile?.firstName,
           lastName: userProfile?.lastName,
@@ -184,7 +184,7 @@ export const userFollowProfileAction = createAsyncThunk(
     // http call
     try {
       const { data } = await axios.put(
-        `/api/users/following`,
+        `http://localhost:4000/api/users/following`,
         {
           followId: followuserById,
         },
@@ -213,7 +213,7 @@ export const unfollowUserAction = createAsyncThunk(
     // http call
     try {
       const { data } = await axios.put(
-        `/api/users/unfollowing`,
+        `http://localhost:4000/api/users/unfollowing`,
         {
           UnfollowId: unFollowedId,
         },
@@ -241,7 +241,7 @@ export const fetchAllUserAction = createAsyncThunk(
     try {
       // http call
       const { data } = await axios.get(
-        `/api/users`,
+        `http://localhost:4000/api/users`,
         config
       );
 
@@ -270,7 +270,7 @@ export const blockUserAction = createAsyncThunk(
     };
     try {
       const { data } = await axios.put(
-        `/api/users/block-user/${id}`,
+        `http://localhost:4000/api/users/block-user/${id}`,
         {},
         config
       );
@@ -296,7 +296,7 @@ export const unBlockUserAction = createAsyncThunk(
     };
     try {
       const { data } = await axios.put(
-        `/api/users/unblock-user/${id}`,
+        `http://localhost:4000/api/users/unblock-user/${id}`,
         {},
         config
       );
@@ -322,7 +322,7 @@ export const updateUserPasswordAction = createAsyncThunk(
     };
     try {
       const { data } = await axios.put(
-        `/api/users/password`,
+        `http://localhost:4000/api/users/password`,
         {
           oldPassword: password?.oldPassword,
           newpassword: password?.newpassword,
@@ -351,7 +351,7 @@ export const forgetPasswordAction = createAsyncThunk(
     //http call
     try {
       const { data } = await axios.post(
-        "/api/users/forget-password",
+        "http://localhost:4000/api/users/forget-password",
         {
           email: email?.email,
         },
@@ -378,7 +378,7 @@ export const resetPasswordAction = createAsyncThunk(
     };
     try {
       const { data } = await axios.put(
-        `/api/users/password/reset/${password?.token}`,
+        `http://localhost:4000/api/users/password/reset/${password?.token}`,
         {
           password: password?.password,
           confirmPassword: password?.confirmPassword,
